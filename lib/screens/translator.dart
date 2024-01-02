@@ -136,7 +136,7 @@ class _TranslatorAppState extends State<TranslatorApp> {
               ),
 
           Padding(
-            padding: const EdgeInsets.only(top: 20), // Adjust the padding as needed
+            padding: const EdgeInsets.only(top: 20),
             child: ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(builder: (_) => SpaceInvadersGame()));
@@ -153,7 +153,7 @@ class _TranslatorAppState extends State<TranslatorApp> {
              ),
 
               Padding(
-                padding: const EdgeInsets.only(top: 20), // Adjust the padding as needed
+                padding: const EdgeInsets.only(top: 20),
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(builder: (_) => TicTacToe()));
@@ -163,7 +163,7 @@ class _TranslatorAppState extends State<TranslatorApp> {
                     style: TextStyle(color: Colors.white),
                   ),
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.green, // Choose a color that fits your app design
+                    primary: Colors.green,
                     minimumSize: const Size(double.infinity, 50),
                   ),
                 ),

@@ -30,13 +30,13 @@ class _TicTacToeScreenState extends State<TicTacToe> {
       if (board[combo[0]] != '' &&
           board[combo[0]] == board[combo[1]] &&
           board[combo[1]] == board[combo[2]]) {
-        // Winner!
+
         _showWinnerDialog(board[combo[0]]);
         return;
       }
     }
 
-    // Check for draw
+
     if (board.every((element) => element != '')) {
       _showDrawDialog();
     }
