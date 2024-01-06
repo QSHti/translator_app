@@ -1,8 +1,9 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:translator/translator.dart';
-import 'space_invaders_game.dart';
-import 'tictactoe.dart';
+import '../ui/spaceinvadersui.dart';
+import '../ui/tictactoeui.dart';
+import '../ui/colormatchui.dart';
 
 class TranslatorApp extends StatefulWidget {
   const TranslatorApp({super.key});
@@ -168,6 +169,24 @@ class _TranslatorAppState extends State<TranslatorApp> {
                   ),
                 ),
               ),
+
+              Padding(
+                padding: const EdgeInsets.only(top: 20),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) => ColorMatchGame()));
+                  },
+                  child: const Text(
+                    'Play Color Macth Game',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.purple,
+                    minimumSize: const Size(double.infinity, 50),
+                  ),
+                ),
+              ),
+
             ],
           ),
         ),
