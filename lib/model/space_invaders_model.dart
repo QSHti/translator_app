@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class SpaceInvadersModel {
+class SpaceInvadersModel extends ChangeNotifier {
   static const int spaceShipStartPos = 550;
   static const int numberOfSquares = 700;
   static int alienStartPos = 30;
@@ -86,10 +86,12 @@ class SpaceInvadersModel {
     alienDirection = 'left';
     gameWon = false;
     score = 0;
+    notifyListeners();
   }
 
   void fireAlienMissile(int alienPosition) {
-    alienMissiles.add(alienPosition + 20); // Assuming a grid of 20 columns
+    alienMissiles.add(alienPosition + 20);
+    notifyListeners();
   }
 
   void updateAlienMissiles() {
@@ -97,24 +99,28 @@ class SpaceInvadersModel {
       alienMissiles[i] += 20; // Move the missile down the grid
     }
     alienMissiles.removeWhere((pos) => pos >= numberOfSquares); // Remove missiles that are off the grid
+    notifyListeners();
   }
 
   void moveSpaceshipLeft() {
     if (spaceship.first % 20 != 0) {
       spaceship[0]--;
     }
+    notifyListeners();
   }
 
   void moveSpaceshipRight() {
     if (spaceship.first % 20 != 19) {
       spaceship[0]++;
     }
+    notifyListeners();
   }
 
   void firePlayerMissile() {
     if (playerMissileShot == -1) { // Can fire if there is no missile already in flight
       playerMissileShot = spaceship.first - 20;
     }
+    notifyListeners();
   }
 
   void updatePlayerMissile() {
@@ -128,10 +134,11 @@ class SpaceInvadersModel {
         playerMissileShot = -1;
       }
     }
+    notifyListeners();
   }
 
   void checkGameWon() {
     gameWon = alien.isEmpty;
+    notifyListeners();
   }
-
 }

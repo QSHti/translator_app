@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">translator_project</string>
+    <string name="facebook_app_id">364599469545542</string>
+    <string name="fb_login_protocol_scheme">fb364599469545542</string>
+    <string name="facebook_client_token">5a0991962e77a9cbff50bb6a5c3ef31e</string>
+</resources>

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'spaceinvadersmodel.dart';
+import 'space_invaders_model.dart';
 
 class SpaceInvadersPainter extends CustomPainter {
   final SpaceInvadersModel model;
@@ -10,25 +10,33 @@ class SpaceInvadersPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final paint = Paint();
 
+    // Paint the background
+    paint.color = Colors.black;
+    canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height), paint);
+
     // Draw the spaceship
-    paint.color = Colors.black; // Make sure the color contrasts with the background
+    paint.color = Colors.blue;
     int spaceshipColumn = model.spaceship.first % 20;
     int spaceshipRow = model.spaceship.first ~/ 20;
     var spaceshipRect = Rect.fromLTWH(
-      spaceshipColumn * size.width / 20, // Calculate the X position
-      spaceshipRow * size.height / 35, // Calculate the Y position, assuming 35 rows
-      size.width / 20, // Width of the spaceship
-      size.height / 35, // Height of the spaceship
+      spaceshipColumn * size.width / 20,
+      spaceshipRow * size.height / 35,
+      size.width / 20,
+      size.height / 35,
     );
     canvas.drawRect(spaceshipRect, paint);
 
     // Draw the aliens
     paint.color = Colors.green;
     for (var alienPos in model.alien) {
-      var alienRect = Rect.fromCenter(
-          center: Offset(alienPos % 20 * 20.0, alienPos / 20 * 20.0),
-          width: 18.0,
-          height: 18.0);
+      var column = alienPos % 20;
+      var row = alienPos ~/ 20;
+      var alienRect = Rect.fromLTWH(
+        column * size.width / 20,
+        row * size.height / 35,
+        size.width / 20,
+        size.height / 35,
+      );
       canvas.drawRect(alienRect, paint);
     }
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../controller/tictactoecontroller.dart';
+import '../controller/tictactoe_controller.dart';
 
 class TicTacToe extends StatefulWidget {
   @override
@@ -50,22 +50,31 @@ class _TicTacToeScreenState extends State<TicTacToe> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Tic Tac Toe')),
+      appBar: AppBar(
+        title: Text('Tic Tac Toe'),
+        backgroundColor: Colors.deepPurple, // Custom color for AppBar
+      ),
       body: GridView.builder(
         itemCount: 9,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+          crossAxisSpacing: 8, // Space between columns
+          mainAxisSpacing: 8, // Space between rows
+        ),
+        padding: EdgeInsets.all(16), // Padding around the grid
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () => _onTap(index),
-            child: Container(
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.black),
-                color: Colors.white,
-              ),
+            child: Card(
+              elevation: 4, // Elevated effect for grid cells
               child: Center(
                 child: Text(
                   controller.model.board[index],
-                  style: TextStyle(fontSize: 72, color: Colors.red, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 72,
+                    color: controller.model.board[index] == 'X' ? Colors.blue : Colors.red, // X in blue, O in red
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),

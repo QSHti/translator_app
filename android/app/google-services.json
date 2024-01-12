@@ -1,45 +1,51 @@
 {
   "project_info": {
-    "project_number": "233871199124",
-    "project_id": "translatorapp-dfd90",
-    "storage_bucket": "translatorapp-dfd90.appspot.com"
+    "project_number": "434674277031",
+    "project_id": "translator-project-13be4",
+    "storage_bucket": "translator-project-13be4.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:233871199124:android:fd5d484fc5a7cb467ddd81",
-        "android_client_info": {
-          "package_name": "com.android.application"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDvU_255pNZVEAXHZEHV2gTfM4_dhfhhDA"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:233871199124:android:2bd5333fc5e88b527ddd81",
+        "mobilesdk_app_id": "1:434674277031:android:fac307e5a441d6c6e61982",
         "android_client_info": {
           "package_name": "com.example.translator_app"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "434674277031-g246c31oj3b13dbiumdq3kf4fjt9p0g3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.translator_app",
+            "certificate_hash": "4d6f7f649b0fbc7a42ff74362edfd058eff411c7"
+          }
+        },
+        {
+          "client_id": "434674277031-plqjgjikohl2qacji64le6rnsnstpsnl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyDvU_255pNZVEAXHZEHV2gTfM4_dhfhhDA"
+          "current_key": "AIzaSyBrJ-JGvm-aPvW9iDYmkW3cqm7y-xIasi0"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "434674277031-plqjgjikohl2qacji64le6rnsnstpsnl.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "434674277031-er4cn4ndt8rd1d6bcennut9he64lkpv4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.translatorApp"
+              }
+            }
+          ]
         }
       }
     }

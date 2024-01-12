@@ -1,4 +1,4 @@
-import '../model/tictactoemodel.dart';
+import '../model/tictactoe_model.dart';
 
 class TicTacToeController {
   final TicTacToeModel model = TicTacToeModel();
