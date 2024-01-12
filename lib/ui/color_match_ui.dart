@@ -38,7 +38,7 @@ class _ColorMatchGameState extends State<ColorMatchGame> {
     ).then((_) {
       controller.resetGame();
       controller.nextColor();
-      setState(() {});  // Обновить UI после сброса игры
+      setState(() {});
     });
   }
 

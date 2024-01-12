@@ -5,7 +5,6 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  // Google
   Future<User?> signInWithGoogle() async {
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
     if (googleUser == null) return null;
@@ -18,7 +17,6 @@ class AuthService {
     return userCredential.user;
   }
 
-  // Facebook
   Future<User?> signInWithFacebook() async {
     final LoginResult result = await FacebookAuth.instance.login();
     if (result.status != LoginStatus.success) return null;
@@ -27,13 +25,11 @@ class AuthService {
     return userCredential.user;
   }
 
-  // Anonymous
   Future<User?> signInAnonymously() async {
     UserCredential userCredential = await _auth.signInAnonymously();
     return userCredential.user;
   }
 
-  // Sign out
   Future<void> signOut() async {
     await _auth.signOut();
   }

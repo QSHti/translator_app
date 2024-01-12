@@ -23,13 +23,11 @@ class _TranslatorAppState extends State<TranslatorApp> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              // Language selection
               _buildLanguageDropdown('From', model.fromLanguageCode, model.setFromLanguage),
               SizedBox(height: 8),
               _buildLanguageDropdown('To', model.toLanguageCode, model.setToLanguage),
-              SizedBox(height: 16), // Added space
+              SizedBox(height: 16),
 
-              // Text input field
               TextFormField(
                 controller: textController,
                 maxLines: 3,
@@ -38,9 +36,8 @@ class _TranslatorAppState extends State<TranslatorApp> {
                   border: OutlineInputBorder(),
                 ),
               ),
-              SizedBox(height: 16), // Added space
+              SizedBox(height: 16),
 
-              // Translate button
               ElevatedButton(
                 onPressed: () async {
                   await model.translate(textController.text);
@@ -50,7 +47,7 @@ class _TranslatorAppState extends State<TranslatorApp> {
                     'Translate',
                     style: TextStyle(
                         fontSize: 18,
-                        color: Colors.white // Set the text color to white
+                        color: Colors.white
                     )
                 ),
                 style: ElevatedButton.styleFrom(
@@ -58,9 +55,8 @@ class _TranslatorAppState extends State<TranslatorApp> {
                   padding: EdgeInsets.symmetric(vertical: 12),
                 ),
               ),
-              SizedBox(height: 24), // Added space
+              SizedBox(height: 24),
 
-              // Translation result
               Text(
                 'Translation:',
                 style: Theme.of(context).textTheme.headline6,
@@ -73,9 +69,8 @@ class _TranslatorAppState extends State<TranslatorApp> {
                   style: TextStyle(fontSize: 18),
                 ),
               ),
-              SizedBox(height: 24), // Added space
+              SizedBox(height: 24),
 
-              // Translation history
               Text(
                 'History:',
                 style: Theme.of(context).textTheme.headline6,
@@ -97,7 +92,7 @@ class _TranslatorAppState extends State<TranslatorApp> {
       ),
       child: DropdownButtonHideUnderline(
         child: DropdownButton<String>(
-          value: selectedCode, // Ensuring the value matches one of the items
+          value: selectedCode,
           isExpanded: true,
           items: model.languages.map<DropdownMenuItem<String>>((String language) {
             String languageCode = model.languageCodes[model.languages.indexOf(language)];

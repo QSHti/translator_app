@@ -10,11 +10,9 @@ class SpaceInvadersPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final paint = Paint();
 
-    // Paint the background
     paint.color = Colors.black;
     canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height), paint);
 
-    // Draw the spaceship
     paint.color = Colors.blue;
     int spaceshipColumn = model.spaceship.first % 20;
     int spaceshipRow = model.spaceship.first ~/ 20;
@@ -26,7 +24,6 @@ class SpaceInvadersPainter extends CustomPainter {
     );
     canvas.drawRect(spaceshipRect, paint);
 
-    // Draw the aliens
     paint.color = Colors.green;
     for (var alienPos in model.alien) {
       var column = alienPos % 20;
@@ -40,7 +37,6 @@ class SpaceInvadersPainter extends CustomPainter {
       canvas.drawRect(alienRect, paint);
     }
 
-    // Draw the player's missile
     if (model.playerMissileShot != -1) {
       paint.color = Colors.red;
       var missileRect = Rect.fromCenter(
@@ -50,7 +46,6 @@ class SpaceInvadersPainter extends CustomPainter {
       canvas.drawRect(missileRect, paint);
     }
 
-    // Draw the aliens' missiles
     paint.color = Colors.yellow;
     for (var missilePos in model.alienMissiles) {
       var missileRect = Rect.fromCenter(

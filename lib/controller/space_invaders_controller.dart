@@ -7,14 +7,14 @@ class SpaceInvadersController {
   Timer? gameTimer;
   Function? onGameWon;
   Function? onGameOver;
-  final int alienFireRate = 5; // Lower number means more frequent firing
+  final int alienFireRate = 5;
 
   SpaceInvadersController({required this.model, this.onGameWon, this.onGameOver});
 
   void startGame() {
-    gameTimer?.cancel();  // Stop any existing timer
+    gameTimer?.cancel();
     gameTimer = Timer.periodic(
-      const Duration(milliseconds: 100), // Game loop interval
+      const Duration(milliseconds: 100),
           (Timer timer) {
         moveAliens();
         maybeFireAlienMissile();
@@ -37,7 +37,6 @@ class SpaceInvadersController {
 
     if (changeDirection) {
       model.alienDirection = model.alienDirection == 'left' ? 'right' : 'left';
-      // Optional: move aliens down one row here if desired
     }
 
     for (int i = 0; i < model.alien.length; i++) {
@@ -67,22 +66,20 @@ class SpaceInvadersController {
       onGameWon?.call();
     } else if (isGameOver()) {
       gameTimer?.cancel();
-      onGameOver?.call(); // Call the game over callback
+      onGameOver?.call();
     }
   }
 
   bool isGameOver() {
-    // Checking if the spaceship is hit
     for (int missile in model.alienMissiles) {
       if (model.spaceship.contains(missile)) {
-        return true; // Game over if the spaceship is hit
+        return true;
       }
     }
     return false;
   }
 
   void checkCollisions() {
-    // Player missile and alien collisions
     if (model.playerMissileShot != -1) {
       if (model.alien.contains(model.playerMissileShot)) {
         model.alien.remove(model.playerMissileShot);
@@ -93,7 +90,6 @@ class SpaceInvadersController {
       }
     }
 
-    // Alien missiles and spaceship collisions
     for (int missile in model.alienMissiles) {
       if (isMissileHittingSpaceship(missile)) {
         gameTimer?.cancel();
@@ -110,7 +106,6 @@ class SpaceInvadersController {
     int spaceshipRow = model.spaceship.first ~/ 20;
     int spaceshipColumn = model.spaceship.first % 20;
 
-    //If missile is on the same row
     return missileRow == spaceshipRow &&
         missileColumn >= spaceshipColumn - 1 &&
         missileColumn <= spaceshipColumn + 1;

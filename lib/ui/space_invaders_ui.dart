@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../model/space_invaders_painter.dart';  // Ensure this path is correct
+import '../model/space_invaders_painter.dart';
 import '../controller/space_invaders_controller.dart';
 import '../model/space_invaders_model.dart';
 
@@ -86,7 +86,6 @@ class _SpaceInvadersGameState extends State<SpaceInvadersGame> {
   }
 
   void _handleDragUpdate(DragUpdateDetails details) {
-    // Add logic here to control the frequency and amount of spaceship movement
     if (details.delta.dx > 0) {
       controller.moveSpaceshipRight();
     } else if (details.delta.dx < 0) {

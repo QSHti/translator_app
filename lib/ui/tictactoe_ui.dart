@@ -52,27 +52,27 @@ class _TicTacToeScreenState extends State<TicTacToe> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Tic Tac Toe'),
-        backgroundColor: Colors.deepPurple, // Custom color for AppBar
+        backgroundColor: Colors.deepPurple,
       ),
       body: GridView.builder(
         itemCount: 9,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
-          crossAxisSpacing: 8, // Space between columns
-          mainAxisSpacing: 8, // Space between rows
+          crossAxisSpacing: 8,
+          mainAxisSpacing: 8,
         ),
-        padding: EdgeInsets.all(16), // Padding around the grid
+        padding: EdgeInsets.all(16),
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () => _onTap(index),
             child: Card(
-              elevation: 4, // Elevated effect for grid cells
+              elevation: 4,
               child: Center(
                 child: Text(
                   controller.model.board[index],
                   style: TextStyle(
                     fontSize: 72,
-                    color: controller.model.board[index] == 'X' ? Colors.blue : Colors.red, // X in blue, O in red
+                    color: controller.model.board[index] == 'X' ? Colors.blue : Colors.red,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

@@ -2,13 +2,11 @@ class TicTacToeModel {
   List<String> board = List.generate(9, (index) => '');
   bool xTurn = true;
 
-  // Method to reset the board to the initial state
   void resetBoard() {
     board = List.generate(9, (index) => '');
     xTurn = true;
   }
 
-  // Method to make a move on the board
   bool makeMove(int index) {
     if (board[index] == '') {
       board[index] = xTurn ? 'X' : 'O';
@@ -18,7 +16,6 @@ class TicTacToeModel {
     return false;
   }
 
-  // Method to check if there is a winner
   String checkWinner() {
     const winningCombinations = [
       [0, 1, 2], [3, 4, 5], [6, 7, 8],
@@ -30,11 +27,10 @@ class TicTacToeModel {
       if (board[combo[0]] != '' &&
           board[combo[0]] == board[combo[1]] &&
           board[combo[1]] == board[combo[2]]) {
-        return board[combo[0]]; // Return the winner ('X' or 'O')
+        return board[combo[0]];
       }
     }
 
-    // Check for draw
     if (board.every((element) => element != '')) {
       return 'Draw';
     }

@@ -44,7 +44,7 @@ class ColorMatchController {
       nextColor();
     } else {
       saveHighScore(model.score).then((_) {
-        showGameOverDialog();  // Показать диалоговое окно после сохранения счета
+        showGameOverDialog();
       });
     }
   }

@@ -61,7 +61,6 @@ class SpaceInvadersModel extends ChangeNotifier {
     reset();
   }
 
-  // This method is used to restart the game without creating a new model instance.
   void reset() {
     spaceship = [spaceShipStartPos];
     alien = [
@@ -96,9 +95,9 @@ class SpaceInvadersModel extends ChangeNotifier {
 
   void updateAlienMissiles() {
     for (int i = 0; i < alienMissiles.length; i++) {
-      alienMissiles[i] += 20; // Move the missile down the grid
+      alienMissiles[i] += 20;
     }
-    alienMissiles.removeWhere((pos) => pos >= numberOfSquares); // Remove missiles that are off the grid
+    alienMissiles.removeWhere((pos) => pos >= numberOfSquares);
     notifyListeners();
   }
 
@@ -117,7 +116,7 @@ class SpaceInvadersModel extends ChangeNotifier {
   }
 
   void firePlayerMissile() {
-    if (playerMissileShot == -1) { // Can fire if there is no missile already in flight
+    if (playerMissileShot == -1) {
       playerMissileShot = spaceship.first - 20;
     }
     notifyListeners();
@@ -129,7 +128,7 @@ class SpaceInvadersModel extends ChangeNotifier {
       if (playerMissileShot < 0 || alien.contains(playerMissileShot)) {
         if (alien.contains(playerMissileShot)) {
           alien.remove(playerMissileShot);
-          score += 10; // Increment score for hitting an alien
+          score += 10;
         }
         playerMissileShot = -1;
       }
